@@ -1,0 +1,17 @@
+body {
+    background-image: url('../../assets/background.jpg');
+    background-size: cover;
+}
+.container {
+    background-color: rgba(249, 249, 249, 0.56);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#profileData {
+    margin-top: 20px;
+}
+h2, h3 {
+    color: #0059ff;
+}

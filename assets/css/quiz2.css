@@ -1,0 +1,36 @@
+body {
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('../../assets/bg3.jpg');
+}
+.username {
+    font-size: smaller;
+}
+#pinInputContainer {
+    display: none;
+}
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem; /* Increased font size */
+    font-weight: bold;
+    color: #fff; /* White text color */
+    text-shadow: 2px 2px 0 #000, 4px 4px 0 #555; /* 3D text shadow effect */
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    transform: perspective(1px) translateZ(0);
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem; /* Increased font size */
+    font-weight: bold;
+    color: #fff; /* White text color */
+    text-shadow: 2px 2px 0 #000, 4px 4px 0 #555; /* 3D text shadow effect */
+}
+

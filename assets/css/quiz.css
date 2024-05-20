@@ -1,0 +1,52 @@
+body {
+    background-image: url('../../assets/bg2.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #090908; /* White text color */
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.03), 4px 4px 0 #ffffff; /* 3D text shadow effect */
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    transform: perspective(1px) translateZ(0);
+    text-transform: uppercase;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.radio-group label {
+    margin-right: 10px;
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 20px;
+}
