@@ -154,7 +154,12 @@ class User extends REST_Controller {
     }
 
     public function authcode_get() {
+        if($this->session->userdata('user_id'))  {
         $this->load->view('email_verification');
+        }else{
+            show_404();
+        }
+
     }
     public function logout_post() {
         $data = $this->session->all_userdata();
