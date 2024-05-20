@@ -54,31 +54,25 @@ class User_model extends CI_Model {
         return $query->num_rows() > 0;
     }
 
-
-    // Function to authenticate user login
-//    public function authenticate($userid, $code) {
-//        $this->db->where('id', $userid);
-//        $user = $this->db->get('User')->row();
-//
-//        if (!empty($user) && $code == $user->verification_key) { // Access properties with -> instead of []
-//            $data = array(
-//                'is_email_verified'  => 'yes'
-//            );
-//            $this->db->where('id', $userid);
-//            $this->db->update('User', $data);
-//            return $user;
-//        } else {
-//            return false;
-//        }
-//    }
-
+// Authenticate method in User_model.php
     public function authenticate($email, $code) {
         $this->db->where('email', $email);
         $user = $this->db->get('User')->row();
 
         if (!empty($user) && $code == $user->verification_key) {
+            // Convert verification_key_expires_at to a Unix timestamp
+            $expires_at_timestamp = strtotime($user->verification_key_expires_at);
+
+            $current_timestamp = time();
+
+            // Check if the expiration time has passed (5 minutes)
+            if ($current_timestamp > $expires_at_timestamp) {
+                // Verification key has expired
+                return false;
+            }
+
             // Check if verification key is expired
-            if ($user->verification_key_expires_at >= time()) {
+            if ($user->verification_key_expires_at >= date('Y-m-d H:i:s', $current_timestamp)) {
                 $data = array(
                     'is_email_verified' => 'yes'
                 );
@@ -87,12 +81,14 @@ class User_model extends CI_Model {
                 return $user;
             } else {
                 // Verification key has expired
-                return 'expired';
+                return false ;
             }
         } else {
             return false;
         }
     }
+
+
 
     // retrieve profile data
     public function get_profile($user_id) {
